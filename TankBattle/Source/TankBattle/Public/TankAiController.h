@@ -21,11 +21,8 @@ private:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
 
-	ATank* GetAiTank() const;
-	ATank* GetPlayerTank() const;
-
-	void AimAtPlAyer() const;
-
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float AcceptanceRadius = 3000;
 
 
 	

@@ -15,10 +15,13 @@ UCLASS()
 class TANKBATTLE_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
-private:
 
-	ATank* GetControlledTank() const;
+protected:
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+		ATank* GetControlledTank() const;
+
+private:
 
 	virtual void BeginPlay() override;
 
@@ -28,15 +31,15 @@ private:
 
 	bool GetSightRayHitLocation(FVector& HitLocation) const;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrossHairX = 0.5;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float CrossHairY = 0.33333;
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 	FVector GetLookVectorHitLocation(FVector LookDirection) const;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 		float LineTraceRange = 1000000.0f;
 
 	FVector GetLineEnd(FVector LookDirection) const;

@@ -3,22 +3,20 @@
 #pragma once
 
 #include "Components/StaticMeshComponent.h"
-#include "TankTurret.generated.h"
+#include "TankTrack.generated.h"
 
 /**
  * 
  */
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
-class TANKBATTLE_API UTankTurret : public UStaticMeshComponent
+class TANKBATTLE_API UTankTrack : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 	
 public:
-	void TurretRotate(float RelativeSpeed);
-
-private:
-	UPROPERTY(EditDefaultsOnly, category = "Setup")
-		float MaxDegreesPerSecond = 30;
+	UFUNCTION(BlueprintCallable, Category = "Input")
+		void SetThrottle(float Throttle);
 	
-	
+	UPROPERTY(EditDefaultsOnly)
+		float TrackMaxDrivingForce = 400000;
 };
